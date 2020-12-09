@@ -385,3 +385,4 @@ C:\dev\repos\REMA\REMA\obj\Debug\net5.0\REMA.dll
 C:\dev\repos\REMA\REMA\obj\Debug\net5.0\ref\REMA.dll
 C:\dev\repos\REMA\REMA\obj\Debug\net5.0\REMA.pdb
 C:\dev\repos\REMA\REMA\obj\Debug\net5.0\REMA.genruntimeconfig.cache
+C:\dev\repos\REMA\REMA\obj\Debug\net5.0\Razor\Views\Landlord\Index.cshtml.g.cs
