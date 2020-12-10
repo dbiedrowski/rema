@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace REMA.Models
+{
+    public interface ILandlordRepository
+    {  
+        public Landlord CreateLandlord(Landlord landlord);
+        public Landlord GetLandlord(int id);
+        IEnumerable<Landlord> AllLandlords { get; }
+        public Landlord UpdateLandlord(Landlord landlord);
+        public Landlord DeleteLandlord(Landlord landlord);
+    }
+}
