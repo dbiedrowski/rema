@@ -12,6 +12,6 @@ namespace REMA.Data
         public Landlord GetLandlord(int id);
         IEnumerable<Landlord> AllLandlords { get; }
         public Landlord UpdateLandlord(Landlord landlord);
-        public Landlord DeleteLandlord(Landlord landlord);
+        public Landlord DeleteLandlord(int id);
     }
 }

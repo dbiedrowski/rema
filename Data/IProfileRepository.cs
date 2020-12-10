@@ -12,6 +12,6 @@ namespace REMA.Data
         public Profile GetProfile(int id);
         IEnumerable<Profile> AllProfiles { get; }
         public Profile UpdateProfile(Profile profile);
-        public Profile DeleteProfile(Profile profile);
+        public Profile DeleteProfile(int id);
     }
 }
