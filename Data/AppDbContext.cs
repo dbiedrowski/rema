@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using REMA.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace REMA.Models
+namespace REMA.Data
 {
     public class AppDbContext : DbContext
     {
