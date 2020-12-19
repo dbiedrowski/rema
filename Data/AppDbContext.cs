@@ -26,6 +26,7 @@ namespace REMA.Data
             // seed profiles
             Profile damian = new Profile { ProfileId = 1, FirstName = "Damian", LastName = "Biedrowski" };
             Profile konrad = new Profile { ProfileId = 2, FirstName = "Konrad", LastName = "Biedrowski" };
+
             builder.Entity<Profile>().HasData(damian);
             builder.Entity<Profile>().HasData(konrad);
 
