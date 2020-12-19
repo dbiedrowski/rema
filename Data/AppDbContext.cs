@@ -23,7 +23,15 @@ namespace REMA.Data
         {
             base.OnModelCreating(builder);
 
-            // seed data
+            // seed profiles
+            Profile damian = new Profile { ProfileId = 1, FirstName = "Damian", LastName = "Biedrowski" };
+            Profile konrad = new Profile { ProfileId = 2, FirstName = "Konrad", LastName = "Biedrowski" };
+            builder.Entity<Profile>().HasData(damian);
+            builder.Entity<Profile>().HasData(konrad);
+
+            // seed landlords
+            builder.Entity<Landlord>().HasData(new Landlord { Id = 1, Profile = damian });
+            builder.Entity<Landlord>().HasData(new Landlord { Id = 2, Profile = konrad });
         }
     }
 }
