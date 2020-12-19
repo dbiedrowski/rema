@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using REMA.Data;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace REMA.Controllers
 {
+    [Authorize]
     public class LandlordController : Controller
     {
         private readonly ILandlordRepository landlordRepository;
