@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using REMA.Data;
+using REMA.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,8 @@ namespace REMA.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Landlord> landlords = landlordRepository.AllLandlords;
+            return View(landlords);
         }
     }
 }

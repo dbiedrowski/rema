@@ -1,1 +1,18 @@
-﻿Landlord Index page
+﻿@model IEnumerable<Landlord>
+
+Our landlords:
+<table>
+    <tr>
+        <th>Landlord ID</th>
+        <th>Profile ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+    </tr>
+    @foreach (var landlord in Model)
+    {
+        <tr>
+            <td>@landlord.Id</td>
+            <td>@landlord.ProfileId</td>
+        </tr>
+    }
+</table>
