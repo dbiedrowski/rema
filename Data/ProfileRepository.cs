@@ -45,12 +45,12 @@ namespace REMA.Data
 
         public Profile GetProfile(int id)
         {
-            return _context.Profiles.FirstOrDefault(llord => llord.Id == id);
+            return _context.Profiles.FirstOrDefault(llord => llord.ProfileId == id);
         }
 
         public Profile UpdateProfile(Profile profile)
         {
-            if (_context.Profiles.Find(profile.Id) != null)
+            if (_context.Profiles.Find(profile.ProfileId) != null)
             {
                 _context.Profiles.Update(profile);
                 _context.SaveChanges();
