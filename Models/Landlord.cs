@@ -11,6 +11,7 @@ namespace REMA.Models
     {
         public int Id { get; set; }
         public int ProfileId { get; set; }
+        public int UserId { get; set; }
         public Profile Profile { get; set; }
     }
 }
