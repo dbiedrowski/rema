@@ -31,8 +31,8 @@ namespace REMA.Data
             builder.Entity<Profile>().HasData(konrad);
 
             // seed landlords
-            builder.Entity<Landlord>().HasData(new Landlord { Id = 1, Profile = damian });
-            builder.Entity<Landlord>().HasData(new Landlord { Id = 2, Profile = konrad });
+            builder.Entity<Landlord>().HasData(new Landlord { Id = 1, ProfileId = 1});
+            builder.Entity<Landlord>().HasData(new Landlord { Id = 2, ProfileId = 2});
         }
     }
 }
