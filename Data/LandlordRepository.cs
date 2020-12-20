@@ -1,4 +1,5 @@
-﻿using REMA.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using REMA.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,9 @@ namespace REMA.Data
         {
             get
             {
-                return _context.Landlords.AsEnumerable<Landlord>();
+                return _context.Landlords
+                    .Include(l => l.Profile)
+                    .AsEnumerable<Landlord>();
             }
         }
 
@@ -45,7 +48,9 @@ namespace REMA.Data
 
         public Landlord GetLandlord(int id)
         {
-            return _context.Landlords.FirstOrDefault(llord => llord.Id == id);
+            return _context.Landlords
+                .Include(l => l.Profile)
+                .FirstOrDefault(llord => llord.Id == id);
         }
 
         public Landlord UpdateLandlord(Landlord landlord)
