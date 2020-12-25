@@ -53,6 +53,13 @@ namespace REMA.Data
                 .FirstOrDefault(llord => llord.Id == id);
         }
 
+        public Landlord GetLandlord(string userId)
+        {
+            return _context.Landlords
+                .Include(l => l.Profile)
+                .FirstOrDefault(llord => llord.UserId == userId);
+        }
+
         public Landlord UpdateLandlord(Landlord landlord)
         {
             if (_context.Landlords.Find(landlord.Id) != null)
