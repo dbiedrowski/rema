@@ -27,6 +27,11 @@ namespace REMA.Data
 
         public Landlord CreateLandlord(Landlord landlord)
         {
+            if(landlord.Profile == null)
+            {
+                landlord.Profile = new Profile();
+            }
+
             _context.Landlords.Add(landlord);
             _context.SaveChanges();
 

@@ -9,7 +9,10 @@ namespace REMA.Models
 {
     public class Landlord
     {
+        [Key]
         public int Id { get; set; }
+
+        [ForeignKey("Profile")]
         public int ProfileId { get; set; }
         public string UserId { get; set; }
         public Profile Profile { get; set; }

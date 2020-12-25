@@ -8,6 +8,7 @@ namespace REMA.Models
 {
     public class Profile
     {
+        [Key]
         public int ProfileId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
