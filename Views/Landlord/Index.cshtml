@@ -1,20 +1,19 @@
-﻿@model IEnumerable<Landlord>
+﻿@model Landlord
 
-Our landlords:
+Your landlord info:
 <table>
     <tr>
         <th>Landlord ID</th>
+        <th>UserId</th>
         <th>Profile ID</th>
         <th>First name</th>
         <th>Last name</th>
     </tr>
-    @foreach (var landlord in Model)
-    {
-        <tr>
-            <td>@landlord.Id</td>
-            <td>@landlord.ProfileId</td>
-            <td>@landlord.Profile.FirstName</td>
-            <td>@landlord.Profile.LastName</td>
-        </tr>
-    }
+    <tr>
+        <td>@Model.Id</td>
+        <td>@Model.UserId</td>
+        <td>@Model.ProfileId</td>
+        <td>@Model.Profile.FirstName</td>
+        <td>@Model.Profile.LastName</td>
+    </tr>
 </table>
