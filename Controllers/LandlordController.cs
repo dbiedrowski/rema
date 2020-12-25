@@ -29,8 +29,8 @@ namespace REMA.Controllers
         public IActionResult Index()
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            IEnumerable <Landlord> landlords = landlordRepository.AllLandlords;
-            return View(landlords);
+            Landlord landlord = landlordRepository.GetLandlord(userId);
+            return View(landlord);
         }
     }
 }
