@@ -7,6 +7,7 @@ namespace REMA.Models
 {
     public class Apartment
     {
+        public int Id { get; set; }
         public Address Address { get; set; }
         public int Floor { get; set; }
         public BuildingType Type { get; set; }
