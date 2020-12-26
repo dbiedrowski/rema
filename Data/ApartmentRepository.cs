@@ -1,4 +1,5 @@
-﻿using REMA.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using REMA.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,12 +39,16 @@ namespace REMA.Data
 
         public Apartment GetById(int id)
         {
-            return _context.Apartments.FirstOrDefault(a => a.ApartmentId == id);
+            return _context.Apartments
+                .Include(a => a.Address)
+                .FirstOrDefault(a => a.ApartmentId == id);
         }
 
         public IEnumerable<Apartment> GetByLandlord(Landlord landlord)
         {
-            return _context.Apartments.Where(a => a.Landlord.LandlordId == landlord.LandlordId);
+            return _context.Apartments
+                .Include(a => a.Address)
+                .Where(a => a.Landlord.LandlordId == landlord.LandlordId);
         }
 
         public Apartment Update(Apartment apartment)
