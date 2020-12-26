@@ -8,30 +8,53 @@ namespace REMA.Data
 {
     public class ApartmentRepository : IApartmentRepository
     {
+        private readonly AppDbContext _context;
 
-        public ApartmentRepository Create(ApartmentRepository apartment)
+        public ApartmentRepository(AppDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public ApartmentRepository Delete(int id)
+        public Apartment Create(Apartment apartment)
         {
-            throw new NotImplementedException();
+            _context.Apartments.Add(apartment);
+            _context.SaveChanges();
+
+            return apartment;
         }
 
-        public ApartmentRepository GetById(int id)
+        public Apartment Delete(int id)
         {
-            throw new NotImplementedException();
+            Apartment apartment = GetById(id);
+
+            if(apartment != null)
+            {
+                _context.Apartments.Remove(apartment);
+                _context.SaveChanges();
+            }
+
+            return apartment;
         }
 
-        public ApartmentRepository GetByLandlord(Landlord landlord)
+        public Apartment GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Apartments.FirstOrDefault(a => a.ApartmentId == id);
         }
 
-        public ApartmentRepository Update(ApartmentRepository apartment)
+        public IEnumerable<Apartment> GetByLandlord(Landlord landlord)
         {
-            throw new NotImplementedException();
+            return _context.Apartments.Where(a => a.Landlord.LandlordId == landlord.LandlordId);
+        }
+
+        public Apartment Update(Apartment apartment)
+        {
+            if (_context.Apartments.Find(apartment.ApartmentId) != null)
+            {
+                _context.Apartments.Update(apartment);
+                _context.SaveChanges();
+            }
+
+            return apartment;
         }
     }
 }

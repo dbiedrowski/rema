@@ -8,10 +8,10 @@ namespace REMA.Data
 {
     interface IApartmentRepository
     {
-        public ApartmentRepository Create(ApartmentRepository apartment);
-        public ApartmentRepository GetById(int id);
-        public ApartmentRepository GetByLandlord(Landlord landlord);
-        public ApartmentRepository Update(ApartmentRepository apartment);
-        public ApartmentRepository Delete(int id);
+        public Apartment Create(Apartment apartment);
+        public Apartment GetById(int id);
+        public IEnumerable<Apartment> GetByLandlord(Landlord landlord);
+        public Apartment Update(Apartment apartment);
+        public Apartment Delete(int id);
     }
 }
