@@ -1,5 +1,8 @@
-﻿namespace REMA.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace REMA.Models
 {
+    [Keyless]
     public class Address
     {
         public string Country { get; set; }
