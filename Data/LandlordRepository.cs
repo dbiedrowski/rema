@@ -55,7 +55,7 @@ namespace REMA.Data
         {
             return _context.Landlords
                 .Include(l => l.Profile)
-                .FirstOrDefault(llord => llord.Id == id);
+                .FirstOrDefault(llord => llord.LandlordId == id);
         }
 
         public Landlord GetLandlord(string userId)
@@ -67,7 +67,7 @@ namespace REMA.Data
 
         public Landlord UpdateLandlord(Landlord landlord)
         {
-            if (_context.Landlords.Find(landlord.Id) != null)
+            if (_context.Landlords.Find(landlord.LandlordId) != null)
             {
                 _context.Landlords.Update(landlord);
                 _context.SaveChanges();
