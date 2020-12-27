@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace REMA.Data
 {
-    interface IApartmentRepository
+    public interface IApartmentRepository
     {
         public Apartment Create(Apartment apartment);
         public Apartment GetById(int id);
