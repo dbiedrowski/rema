@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Apartment>
+
+@{
+    ViewData["Title"] = "Your apartments";
+}
+
+@if (Model.Any())
+{
+    <p>Your apartments:</p>
+    <table border="1px solid black" border-collapse="collapse">
+        <tr>
+            <th>Address</th>
+            <th>Area</th>
+            <th>Floor</th>
+        </tr>
+        @foreach (var @apartment in Model)
+        {
+            <tr>
+                <td>@apartment.Address</td>
+                <td>@apartment.Area</td>
+                <td>@apartment.Floor</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>You currently have no apartments.</p>
+}
