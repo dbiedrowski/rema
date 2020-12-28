@@ -1,0 +1,55 @@
+﻿@model Apartment
+
+<p>Fill in the data below and click "Add new apartment" to add a new apartment to your list.</p>
+<form method="post" asp-action="Add">
+
+    <!-- Address -->
+    <p>
+        <label asp-for="Address.City"></label>
+        <input asp-for="Address.City" />
+    </p>
+    <p>
+        <label asp-for="Address.Country"></label>
+        <input asp-for="Address.Country" />
+    </p>
+    <p>
+        <label asp-for="Address.State"></label>
+        <input asp-for="Address.State" />
+    </p>
+    <p>
+        <label asp-for="Address.StreetName"></label>
+        <input asp-for="Address.StreetName" />
+    </p>
+    <p>
+        <label asp-for="Address.StreetNumber"></label>
+        <input asp-for="Address.StreetNumber" />
+    </p>
+    <p>
+        <label asp-for="Address.ZipCode"></label>
+        <input asp-for="Address.ZipCode" />
+    </p>
+
+    <!-- The rest of the apartment -->
+    <p>
+        <label asp-for="Area"></label>
+        <input asp-for="Area" />
+    </p>
+    <p>
+        <label asp-for="AvailableSince"></label>
+        <input asp-for="AvailableSince" />
+    </p>
+    <p>
+        <label asp-for="BuildingFloors"></label>
+        <input asp-for="BuildingFloors" />
+    </p>
+    <p>
+        <label asp-for="Floor"></label>
+        <input asp-for="Floor" />
+    </p>
+    <p>
+        <label asp-for="Type"></label>
+        <input asp-for="Type" />
+    </p>
+
+    <input type="submit" value="Add new apartment" />
+</form>
