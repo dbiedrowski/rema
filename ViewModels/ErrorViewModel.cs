@@ -1,6 +1,6 @@
 using System;
 
-namespace REMA.Models
+namespace REMA.ViewModels
 {
     public class ErrorViewModel
     {
