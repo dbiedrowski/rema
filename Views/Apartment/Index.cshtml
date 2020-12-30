@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Apartment>
+﻿@model IEnumerable<ApartmentViewModel>
 
 @{
     ViewData["Title"] = "Your apartments";
@@ -13,12 +13,16 @@
             <th>Area</th>
             <th>Floor</th>
         </tr>
-        @foreach (var @apartment in Model)
+        @foreach (var @apartmentViewModel in Model)
         {
             <tr>
-                <td>@apartment.Address</td>
-                <td>@apartment.Area</td>
-                <td>@apartment.Floor</td>
+                <td>
+                    @apartmentViewModel.StreetName
+                    @apartmentViewModel.StreetNumber,
+                    @apartmentViewModel.City
+                </td>
+                <td>@apartmentViewModel.Area</td>
+                <td>@apartmentViewModel.Floor</td>
             </tr>
         }
     </table>

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using REMA.Data;
 using REMA.Models;
+using REMA.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,20 +36,23 @@ namespace REMA.Controllers
         public IActionResult Index()
         {
             IEnumerable<Apartment> apartments = _apartmentRepository.GetByLandlord(_landlord);
-            return View(apartments);
+            IEnumerable<ApartmentViewModel> apartmentViewModels =
+                ApartmentViewModel.ToApartmentViewModels(apartments);
+            return View(apartmentViewModels);
         }
 
         [HttpGet]
         public IActionResult Add()
         {
-            Apartment apartment = new Apartment();
+            ApartmentViewModel apartmentViewModel = new ApartmentViewModel();
 
-            return View(apartment);
+            return View(apartmentViewModel);
         }
 
         [HttpPost]
-        public IActionResult Add(Apartment apartment)
+        public IActionResult Add(ApartmentViewModel apartmentViewModel)
         {
+            Apartment apartment = apartmentViewModel.ToDomainModel();
             apartment.Landlord = _landlord;
             apartment.LandlordId = _landlord.LandlordId;
 

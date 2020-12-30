@@ -1,32 +1,32 @@
-﻿@model Apartment
+﻿@model ApartmentViewModel
 
 <p>Fill in the data below and click "Add new apartment" to add a new apartment to your list.</p>
 <form method="post" asp-action="Add">
 
-    <!-- Address -->
+    <!-- -->
     <p>
-        <label asp-for="Address.City"></label>
-        <input asp-for="Address.City" />
+        <label asp-for="City"></label>
+        <input asp-for="City" />
     </p>
     <p>
-        <label asp-for="Address.Country"></label>
-        <input asp-for="Address.Country" />
+        <label asp-for="Country"></label>
+        <input asp-for="Country" />
     </p>
     <p>
-        <label asp-for="Address.State"></label>
-        <input asp-for="Address.State" />
+        <label asp-for="State"></label>
+        <input asp-for="State" />
     </p>
     <p>
-        <label asp-for="Address.StreetName"></label>
-        <input asp-for="Address.StreetName" />
+        <label asp-for="StreetName"></label>
+        <input asp-for="StreetName" />
     </p>
     <p>
-        <label asp-for="Address.StreetNumber"></label>
-        <input asp-for="Address.StreetNumber" />
+        <label asp-for="StreetNumber"></label>
+        <input asp-for="StreetNumber" />
     </p>
     <p>
-        <label asp-for="Address.ZipCode"></label>
-        <input asp-for="Address.ZipCode" />
+        <label asp-for="ZipCode"></label>
+        <input asp-for="ZipCode" />
     </p>
 
     <!-- The rest of the apartment -->
