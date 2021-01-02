@@ -18,9 +18,7 @@ namespace REMA.ViewModels
 
         // The rest of apartment information
         public int Floor { get; set; }
-
-        // Building type
-        public string Type { get; set; }
+        public BuildingType BuildingType { get; set; }
         public int BuildingFloors { get; set; }
         public DateTime AvailableSince { get; set; }
         public double Area { get; set; }
@@ -39,7 +37,7 @@ namespace REMA.ViewModels
                     Country = Country
                 },
                 Floor = Floor,
-                Type = 0,   // TODO create a radio button with int value and string representation, and assign that value to this
+                BuildingType = BuildingType,
                 BuildingFloors = BuildingFloors,
                 AvailableSince = AvailableSince,
                 Area = Area
@@ -69,7 +67,7 @@ namespace REMA.ViewModels
                 State = apartment.Address.State,
                 Country = apartment.Address.Country,
                 Floor = apartment.Floor,
-                Type = apartment.Type.ToString(),
+                BuildingType = apartment.BuildingType,
                 BuildingFloors = apartment.BuildingFloors,
                 AvailableSince = apartment.AvailableSince,
                 Area = apartment.Area
