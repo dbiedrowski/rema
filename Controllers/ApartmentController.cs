@@ -36,21 +36,21 @@ namespace REMA.Controllers
         public IActionResult Index()
         {
             IEnumerable<Apartment> apartments = _apartmentRepository.GetByLandlord(_landlord);
-            IEnumerable<ApartmentViewModel> apartmentViewModels =
-                ApartmentViewModel.ToApartmentViewModels(apartments);
+            IEnumerable<CreateApartmentViewModel> apartmentViewModels =
+                CreateApartmentViewModel.ToApartmentViewModels(apartments);
             return View(apartmentViewModels);
         }
 
         [HttpGet]
         public IActionResult Add()
         {
-            ApartmentViewModel apartmentViewModel = new ApartmentViewModel();
+            CreateApartmentViewModel apartmentViewModel = new CreateApartmentViewModel();
 
             return View(apartmentViewModel);
         }
 
         [HttpPost]
-        public IActionResult Add(ApartmentViewModel apartmentViewModel)
+        public IActionResult Add(CreateApartmentViewModel apartmentViewModel)
         {
             Apartment apartment = apartmentViewModel.ToDomainModel();
             apartment.Landlord = _landlord;
@@ -60,5 +60,7 @@ namespace REMA.Controllers
 
             return RedirectToAction("Index");
         }
+
+
     }
 }

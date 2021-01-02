@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace REMA.ViewModels
 {
-    public class ApartmentViewModel
+    public class CreateApartmentViewModel
     {
         // Apartment address information
         public string StreetName { get; set; }
@@ -44,21 +44,21 @@ namespace REMA.ViewModels
             };
         }
 
-        internal static IEnumerable<ApartmentViewModel> ToApartmentViewModels(
+        internal static IEnumerable<CreateApartmentViewModel> ToApartmentViewModels(
             IEnumerable<Apartment> apartments)
         {
-            List<ApartmentViewModel> viewModels = new List<ApartmentViewModel>();
+            List<CreateApartmentViewModel> viewModels = new List<CreateApartmentViewModel>();
             foreach(var apartment in apartments)
             {
-                viewModels.Add(ApartmentViewModel.ToApartmentViewModel(apartment));
+                viewModels.Add(CreateApartmentViewModel.ToApartmentViewModel(apartment));
             }
 
             return viewModels.AsEnumerable();
         }
 
-        internal static ApartmentViewModel ToApartmentViewModel(Apartment apartment)
+        internal static CreateApartmentViewModel ToApartmentViewModel(Apartment apartment)
         {
-            ApartmentViewModel apartmentViewModel = new ApartmentViewModel()
+            CreateApartmentViewModel apartmentViewModel = new CreateApartmentViewModel()
             {
                 StreetName = apartment.Address.StreetName,
                 StreetNumber = apartment.Address.StreetNumber,
