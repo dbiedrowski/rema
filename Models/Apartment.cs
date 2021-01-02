@@ -16,7 +16,7 @@ namespace REMA.Models
         public int AddressId { get; set; }
         public Address Address { get; set; }
         public int Floor { get; set; }
-        public BuildingType Type { get; set; }
+        public BuildingType BuildingType { get; set; }
         public int BuildingFloors { get; set; }
         public DateTime AvailableSince { get; set; }
         public double Area { get; set; }
