@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CreateApartmentViewModel>
+﻿@model IEnumerable<DetailsUpdateDeleteApartmentViewModel>
 
 @{
     ViewData["Title"] = "Your apartments";
@@ -12,6 +12,7 @@
             <th>Address</th>
             <th>Area</th>
             <th>Floor</th>
+            <th>Action</th>
         </tr>
         @foreach (var @apartmentViewModel in Model)
         {
@@ -23,6 +24,12 @@
                 </td>
                 <td>@apartmentViewModel.Area</td>
                 <td>@apartmentViewModel.Floor</td>
+                <td>
+                    <a class="btn btn-primary"
+                       asp-controller="Apartment"
+                       asp-action="Details"
+                       asp-route-apartmentId="@apartmentViewModel.ApartmentId">Details</a>
+                </td>
             </tr>
         }
     </table>

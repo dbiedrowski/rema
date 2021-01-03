@@ -36,8 +36,8 @@ namespace REMA.Controllers
         public IActionResult Index()
         {
             IEnumerable<Apartment> apartments = _apartmentRepository.GetByLandlord(_landlord);
-            IEnumerable<CreateApartmentViewModel> apartmentViewModels =
-                CreateApartmentViewModel.ToApartmentViewModels(apartments);
+            IEnumerable<DetailsUpdateDeleteApartmentViewModel> apartmentViewModels =
+                DetailsUpdateDeleteApartmentViewModel.ToViewModels(apartments);
             return View(apartmentViewModels);
         }
 
@@ -61,6 +61,20 @@ namespace REMA.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult Details(int apartmentId)
+        {
+            Apartment apartment = _apartmentRepository.GetById(apartmentId);
 
+            if(apartment == null)
+            {
+                return NotFound();
+            }
+
+            DetailsUpdateDeleteApartmentViewModel viewModel
+                = DetailsUpdateDeleteApartmentViewModel.ToViewModel(apartment);
+
+            return View(viewModel);
+        }
     }
 }

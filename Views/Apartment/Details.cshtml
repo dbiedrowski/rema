@@ -1,0 +1,27 @@
+﻿@model DetailsUpdateDeleteApartmentViewModel
+
+@{
+    ViewData["Title"] = "Details of your apartment";
+}
+
+<p>Details of your apartment:</p>
+<table border="1px solid black" border-collapse="collapse">
+    <tr>
+        <th>Address</th>
+        <th>Area</th>
+        <th>AvailableSince</th>
+        <th>Floor</th>
+        <th>BuildingType</th>
+        <th>BuildingFloors</th>
+    </tr>
+    <tr>
+        <td>@Model.StreetName @Model.StreetNumber, @Model.ZipCode @Model.City, @Model.State, @Model.Country</td>
+        <td>@Model.Area</td>
+        <td>@Model.AvailableSince</td>
+        <td>@Model.Floor</td>
+        <td>@Model.BuildingType</td>
+        <td>@Model.BuildingFloors</td>
+    </tr>
+</table>
+
+<a class="btn btn-primary" asp-controller="Apartment" asp-action="Index">Back to apartments list</a>
