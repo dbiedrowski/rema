@@ -29,8 +29,10 @@ namespace REMA.ViewModels
         {
             return new Apartment()
             {
+                ApartmentId = ApartmentId,
                 Address = new Address
                 {
+                    AddressId = AddressId,
                     StreetName = StreetName,
                     StreetNumber = StreetNumber,
                     City = City,

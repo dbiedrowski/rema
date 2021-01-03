@@ -51,15 +51,29 @@ namespace REMA.Data
                 .Where(a => a.Landlord.LandlordId == landlord.LandlordId);
         }
 
-        public Apartment Update(Apartment apartment)
+        public Apartment Update(Apartment newApartment)
         {
-            if (_context.Apartments.Find(apartment.ApartmentId) != null)
+            if (_context.Apartments.Find(newApartment.ApartmentId) != null)
             {
-                _context.Apartments.Update(apartment);
+                Apartment current = GetById(newApartment.ApartmentId);
+
+                current.Address.City = newApartment.Address.City;
+                current.Address.Country = newApartment.Address.Country;
+                current.Address.State = newApartment.Address.State;
+                current.Address.StreetName = newApartment.Address.StreetName;
+                current.Address.StreetNumber = newApartment.Address.StreetNumber;
+                current.Address.ZipCode = newApartment.Address.ZipCode;
+
+                current.Area = newApartment.Area;
+                current.AvailableSince = newApartment.AvailableSince;
+                current.BuildingFloors = newApartment.BuildingFloors;
+                current.BuildingType = newApartment.BuildingType;
+                current.Floor = newApartment.Floor;
+
                 _context.SaveChanges();
             }
 
-            return apartment;
+            return newApartment;
         }
     }
 }

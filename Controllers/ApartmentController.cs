@@ -97,7 +97,7 @@ namespace REMA.Controllers
         public IActionResult Update(DetailsUpdateDeleteApartmentViewModel viewModel)
         {
             _apartmentRepository.Update(viewModel.ToDomainModel());
-            return View("Index");
+            return RedirectToAction("Index");
         }
     }
 }
