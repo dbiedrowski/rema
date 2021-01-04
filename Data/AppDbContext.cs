@@ -20,6 +20,7 @@ namespace REMA.Data
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Apartment> Apartments { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<Room> Rooms { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
