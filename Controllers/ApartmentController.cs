@@ -99,5 +99,28 @@ namespace REMA.Controllers
             _apartmentRepository.Update(viewModel.ToDomainModel());
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Delete(int apartmentId)
+        {
+            Apartment apartment = _apartmentRepository.GetById(apartmentId);
+
+            if (apartment == null)
+            {
+                return NotFound();
+            }
+
+            DetailsUpdateDeleteApartmentViewModel viewModel
+                = DetailsUpdateDeleteApartmentViewModel.ToViewModel(apartment);
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(DetailsUpdateDeleteApartmentViewModel viewModel)
+        {
+            _apartmentRepository.Delete(viewModel.ApartmentId);
+            return RedirectToAction("Index");
+        }
     }
 }
