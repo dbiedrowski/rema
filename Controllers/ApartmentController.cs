@@ -70,6 +70,10 @@ namespace REMA.Controllers
             {
                 return NotFound();
             }
+            else if(apartment.LandlordId != _landlord.LandlordId)
+            {
+                return Forbid();
+            }
 
             DetailsUpdateDeleteApartmentViewModel viewModel
                 = DetailsUpdateDeleteApartmentViewModel.ToViewModel(apartment);
@@ -85,6 +89,10 @@ namespace REMA.Controllers
             if (apartment == null)
             {
                 return NotFound();
+            }
+            else if (apartment.LandlordId != _landlord.LandlordId)
+            {
+                return Forbid();
             }
 
             DetailsUpdateDeleteApartmentViewModel viewModel
@@ -108,6 +116,10 @@ namespace REMA.Controllers
             if (apartment == null)
             {
                 return NotFound();
+            }
+            else if (apartment.LandlordId != _landlord.LandlordId)
+            {
+                return Forbid();
             }
 
             DetailsUpdateDeleteApartmentViewModel viewModel
