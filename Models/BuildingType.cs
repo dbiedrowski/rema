@@ -1,4 +1,4 @@
-﻿namespace REMA.Models
+﻿namespace REMA.Enums
 {
     public enum BuildingType
     {

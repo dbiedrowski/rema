@@ -1,4 +1,5 @@
-﻿using REMA.Models;
+﻿using REMA.Enums;
+using REMA.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
