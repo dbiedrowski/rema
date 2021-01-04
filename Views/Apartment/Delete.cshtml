@@ -1,0 +1,35 @@
+﻿@model DetailsUpdateDeleteApartmentViewModel
+
+@{
+    ViewData["Title"] = "Delete your apartment";
+}
+
+<h3>You are about to delete the following apartment from you list:</h3>
+<form method="post" asp-action="Delete">
+    <p>
+        <input asp-for="ApartmentId" hidden="hidden" />
+        <input asp-for="AddressId" hidden="hidden" />
+    </p>
+
+    <table border="1px solid black" border-collapse="collapse">
+        <tr>
+            <th>Address</th>
+            <th>Area</th>
+            <th>AvailableSince</th>
+            <th>Floor</th>
+            <th>BuildingType</th>
+            <th>BuildingFloors</th>
+        </tr>
+        <tr>
+            <td>@Model.StreetName @Model.StreetNumber, @Model.ZipCode @Model.City, @Model.State, @Model.Country</td>
+            <td>@Model.Area</td>
+            <td>@Model.AvailableSince</td>
+            <td>@Model.Floor</td>
+            <td>@Model.BuildingType</td>
+            <td>@Model.BuildingFloors</td>
+        </tr>
+    </table>
+    <input type="submit" value="Continue" />
+</form>
+
+<a class="btn btn-primary" asp-controller="Apartment" asp-action="Index">Back to apartments list</a>
