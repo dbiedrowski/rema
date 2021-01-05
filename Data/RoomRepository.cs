@@ -24,7 +24,14 @@ namespace REMA.Data
 
         public Room Delete(int roomId)
         {
-            throw new NotImplementedException();
+            Room room = GetById(roomId);
+            if (room != null)
+            {
+                _context.Rooms.Remove(room);
+                _context.SaveChanges();
+            }
+
+            return room;
         }
 
         public IEnumerable<Room> GetByApartment(int apartmentId)
