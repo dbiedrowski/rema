@@ -27,6 +27,7 @@
             <th>RoomType</th>
             <th>Area</th>
             <th>IsFurnished</th>
+            <th>Action</th>
         </tr>
         @foreach (var room in Model.Rooms)
         {
@@ -35,6 +36,20 @@
                 <td>@room.RoomType</td>
                 <td>@room.Area</td>
                 <td>@room.IsFurnished</td>
+                <td>
+                    <a class="btn btn-primary"
+                       asp-controller="RoomController"
+                       asp-action="Details"
+                       asp-route-roomId="@room.RoomId">Details</a>
+                    <a class="btn btn-primary"
+                       asp-controller="RoomController"
+                       asp-action="Update"
+                       asp-route-roomId="@room.RoomId">Update</a>
+                    <a class="btn btn-primary"
+                       asp-controller="RoomController"
+                       asp-action="Delete"
+                       asp-route-roomId="@room.RoomId">Delete</a>
+                </td>
             </tr>
 
         }
