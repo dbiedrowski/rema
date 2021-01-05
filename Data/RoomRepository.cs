@@ -34,7 +34,8 @@ namespace REMA.Data
 
         public Room GetById(int roomId)
         {
-            throw new NotImplementedException();
+            Room room = _context.Rooms.FirstOrDefault<Room>(r => r.RoomId == roomId);
+            return room;
         }
 
         public Room Update(Room room)

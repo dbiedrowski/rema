@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using REMA.Data;
+using REMA.Models;
 using REMA.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,19 @@ namespace REMA.Controllers
         {
             _roomRepository.Create(viewModel.ToDomainModel());
             return RedirectToAction("Details", "Apartment", new { apartmentId = viewModel.ApartmentId });
+        }
+
+        [HttpGet]
+        public IActionResult Details(int roomId)
+        {
+            Room room = _roomRepository.GetById(roomId);
+
+            if(room == null)
+            {
+                return NotFound();
+            }
+
+            return View(DetailsUpdateDeleteRoomViewModel.ToViewModel(room));
         }
     }
 }
