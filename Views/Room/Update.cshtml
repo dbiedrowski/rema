@@ -1,0 +1,26 @@
+﻿@model DetailsUpdateDeleteRoomViewModel
+
+@{ 
+    ViewData["Title"] = "Update your room";
+}
+
+<form method="post" asp-action="Update">
+    <input hidden="hidden" asp-for="@Model.RoomId" />
+    <input hidden="hidden" asp-for="@Model.ApartmentId" />
+
+    <label asp-for="@Model.Area"></label>
+    <input asp-for="@Model.Area" />
+    <label asp-for="@Model.IsFurnished"></label>
+    <input asp-for="@Model.IsFurnished" />
+    <label asp-for="@Model.Price"></label>
+    <input asp-for="@Model.Price" />
+    <label asp-for="@Model.RoomType"></label>
+    <input asp-for="@Model.RoomType" />
+
+    <input class="btn btn-primary" type="submit" value="Update your room"/>
+</form>
+
+<a class="btn btn-primary"
+   asp-controller="Apartment"
+   asp-action="Details"
+   asp-route-apartmentId="@Model.ApartmentId">Back to apartment</a>

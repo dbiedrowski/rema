@@ -20,6 +20,7 @@ namespace REMA.Data
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Apartment> Apartments { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<Room> Rooms { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -92,6 +93,39 @@ namespace REMA.Data
             builder.Entity<Apartment>().HasData(damianApartment1);
             builder.Entity<Apartment>().HasData(damianApartment2);
             builder.Entity<Apartment>().HasData(konradApartment);
+
+            // seed rooms
+            Room damianApartment1Room1 = new Room()
+            {
+                ApartmentId = damianApartment2.ApartmentId,
+                Area = 7.67,
+                IsFurnished = true,
+                Price = 700,
+                RoomId = 1,
+                RoomType = Enums.RoomType.RoomForOne
+            };
+            Room damianApartment1Room2 = new Room()
+            {
+                ApartmentId = damianApartment2.ApartmentId,
+                Area = 7.71,
+                IsFurnished = true,
+                Price = 700,
+                RoomId = 2,
+                RoomType = Enums.RoomType.RoomForOne
+            };
+            Room damianApartment1Room3 = new Room()
+            {
+                ApartmentId = damianApartment2.ApartmentId,
+                Area = 15.12,
+                IsFurnished = true,
+                Price = 850,
+                RoomId = 3,
+                RoomType = Enums.RoomType.RoomForOne
+            };
+
+            builder.Entity<Room>().HasData(damianApartment1Room1);
+            builder.Entity<Room>().HasData(damianApartment1Room2);
+            builder.Entity<Room>().HasData(damianApartment1Room3);
         }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using REMA.Data;
 
 namespace REMA.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210104111610_REMA-77-CreateRoomModel")]
+    partial class REMA77CreateRoomModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -440,35 +442,6 @@ namespace REMA.Migrations
                     b.HasIndex("ApartmentId");
 
                     b.ToTable("Rooms");
-
-                    b.HasData(
-                        new
-                        {
-                            RoomId = 1,
-                            ApartmentId = 2,
-                            Area = 7.6699999999999999,
-                            IsFurnished = true,
-                            Price = 700m,
-                            RoomType = 0
-                        },
-                        new
-                        {
-                            RoomId = 2,
-                            ApartmentId = 2,
-                            Area = 7.71,
-                            IsFurnished = true,
-                            Price = 700m,
-                            RoomType = 0
-                        },
-                        new
-                        {
-                            RoomId = 3,
-                            ApartmentId = 2,
-                            Area = 15.119999999999999,
-                            IsFurnished = true,
-                            Price = 850m,
-                            RoomType = 0
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -555,17 +528,12 @@ namespace REMA.Migrations
             modelBuilder.Entity("REMA.Models.Room", b =>
                 {
                     b.HasOne("REMA.Models.Apartment", "Apartment")
-                        .WithMany("Rooms")
+                        .WithMany()
                         .HasForeignKey("ApartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Apartment");
-                });
-
-            modelBuilder.Entity("REMA.Models.Apartment", b =>
-                {
-                    b.Navigation("Rooms");
                 });
 
             modelBuilder.Entity("REMA.Models.Landlord", b =>
