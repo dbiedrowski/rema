@@ -47,5 +47,25 @@ namespace REMA.Controllers
 
             return View(DetailsUpdateDeleteRoomViewModel.ToViewModel(room));
         }
+
+        [HttpGet]
+        public IActionResult Update(int roomId)
+        {
+            Room room = _roomRepository.GetById(roomId);
+
+            if (room == null)
+            {
+                return NotFound();
+            }
+
+            return View(DetailsUpdateDeleteRoomViewModel.ToViewModel(room));
+        }
+
+        [HttpPost]
+        public IActionResult Update(DetailsUpdateDeleteRoomViewModel viewModel)
+        {
+            _roomRepository.Update(viewModel.ToDomainModel());
+            return RedirectToAction("Details", "Apartment", new { apartmentId = viewModel.ApartmentId });
+        }
     }
 }

@@ -40,7 +40,18 @@ namespace REMA.Data
 
         public Room Update(Room room)
         {
-            throw new NotImplementedException();
+            Room current = GetById(room.RoomId);
+            if(current != null)
+            {
+                current.Area = room.Area;
+                current.IsFurnished = room.IsFurnished;
+                current.Price = room.Price;
+                current.RoomType = room.RoomType;
+
+                _context.SaveChanges();
+            }
+            
+            return room;
         }
     }
 }
