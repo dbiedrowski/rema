@@ -36,6 +36,7 @@ namespace REMA
             services.AddScoped<ILandlordRepository, LandlordRepository>();
             services.AddScoped<IProfileRepository, ProfileRepository>();
             services.AddScoped<IApartmentRepository, ApartmentRepository>();
+            services.AddScoped<IRoomRepository, RoomRepository>();
             services.AddRazorPages();
             services.AddHttpContextAccessor();
         }
