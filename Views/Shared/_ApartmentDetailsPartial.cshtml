@@ -1,4 +1,6 @@
-﻿<table border="1px solid black" border-collapse="collapse">
+﻿@model DetailsUpdateDeleteApartmentViewModel
+
+<table border="1px solid black" border-collapse="collapse">
     <tr>
         <th>Address</th>
         <th>Area</th>
@@ -16,3 +18,29 @@
         <td>@Model.BuildingFloors</td>
     </tr>
 </table>
+@if (Model.Rooms.Any())
+{
+    <p>Rooms associated with this apartments:</p>
+    <table border="1px solid black" border-collapse="collapse">
+        <tr>
+            <th>Price</th>
+            <th>RoomType</th>
+            <th>Area</th>
+            <th>IsFurnished</th>
+        </tr>
+        @foreach (var room in Model.Rooms)
+        {
+            <tr>
+                <td>@room.Price</td>
+                <td>@room.RoomType</td>
+                <td>@room.Area</td>
+                <td>@room.IsFurnished</td>
+            </tr>
+
+        }
+    </table>
+}
+else
+{
+    <p>You currently have no rooms associated with this apartments.</p>
+}

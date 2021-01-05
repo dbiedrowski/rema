@@ -41,6 +41,7 @@ namespace REMA.Data
         {
             return _context.Apartments
                 .Include(a => a.Address)
+                .Include(r => r.Rooms)
                 .FirstOrDefault(a => a.ApartmentId == id);
         }
 
