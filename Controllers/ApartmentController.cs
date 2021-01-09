@@ -64,41 +64,13 @@ namespace REMA.Controllers
         [HttpGet]
         public IActionResult Details(int apartmentId)
         {
-            Apartment apartment = _apartmentRepository.GetById(apartmentId);
-
-            if(apartment == null)
-            {
-                return NotFound();
-            }
-            else if(apartment.LandlordId != _landlord.LandlordId)
-            {
-                return Forbid();
-            }
-
-            DetailsUpdateDeleteApartmentViewModel viewModel
-                = DetailsUpdateDeleteApartmentViewModel.ToViewModel(apartment);
-
-            return View(viewModel);
+            return HelperForHttpGetDetailsUpdateDelete(apartmentId);
         }
 
         [HttpGet]
         public IActionResult Update(int apartmentId)
         {
-            Apartment apartment = _apartmentRepository.GetById(apartmentId);
-
-            if (apartment == null)
-            {
-                return NotFound();
-            }
-            else if (apartment.LandlordId != _landlord.LandlordId)
-            {
-                return Forbid();
-            }
-
-            DetailsUpdateDeleteApartmentViewModel viewModel
-                = DetailsUpdateDeleteApartmentViewModel.ToViewModel(apartment);
-
-            return View(viewModel);
+            return HelperForHttpGetDetailsUpdateDelete(apartmentId);
         }
 
         [HttpPost]
@@ -111,6 +83,18 @@ namespace REMA.Controllers
         [HttpGet]
         public IActionResult Delete(int apartmentId)
         {
+            return HelperForHttpGetDetailsUpdateDelete(apartmentId);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(DetailsUpdateDeleteApartmentViewModel viewModel)
+        {
+            _apartmentRepository.Delete(viewModel.ApartmentId);
+            return RedirectToAction("Index");
+        }
+
+        private IActionResult HelperForHttpGetDetailsUpdateDelete(int apartmentId)
+        {
             Apartment apartment = _apartmentRepository.GetById(apartmentId);
 
             if (apartment == null)
@@ -126,13 +110,6 @@ namespace REMA.Controllers
                 = DetailsUpdateDeleteApartmentViewModel.ToViewModel(apartment);
 
             return View(viewModel);
-        }
-
-        [HttpPost]
-        public IActionResult Delete(DetailsUpdateDeleteApartmentViewModel viewModel)
-        {
-            _apartmentRepository.Delete(viewModel.ApartmentId);
-            return RedirectToAction("Index");
         }
     }
 }
