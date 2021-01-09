@@ -55,27 +55,13 @@ namespace REMA.Controllers
         [HttpGet]
         public IActionResult Details(int roomId)
         {
-            Room room = _roomRepository.GetById(roomId);
-
-            if(room == null)
-            {
-                return NotFound();
-            }
-
-            return View(DetailsUpdateDeleteRoomViewModel.ToViewModel(room));
+            return HelperForHttpGetDetailsUpdateDelete(roomId);
         }
 
         [HttpGet]
         public IActionResult Update(int roomId)
         {
-            Room room = _roomRepository.GetById(roomId);
-
-            if (room == null)
-            {
-                return NotFound();
-            }
-
-            return View(DetailsUpdateDeleteRoomViewModel.ToViewModel(room));
+            return HelperForHttpGetDetailsUpdateDelete(roomId);
         }
 
         [HttpPost]
@@ -88,6 +74,18 @@ namespace REMA.Controllers
         [HttpGet]
         public IActionResult Delete(int roomId)
         {
+            return HelperForHttpGetDetailsUpdateDelete(roomId);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(DetailsUpdateDeleteRoomViewModel viewModel)
+        {
+            _roomRepository.Delete(viewModel.RoomId);
+            return RedirectToAction("Details", "Apartment", new { apartmentId = viewModel.ApartmentId });
+        }
+
+        private IActionResult HelperForHttpGetDetailsUpdateDelete(int roomId)
+        {
             Room room = _roomRepository.GetById(roomId);
 
             if (room == null)
@@ -96,13 +94,6 @@ namespace REMA.Controllers
             }
 
             return View(DetailsUpdateDeleteRoomViewModel.ToViewModel(room));
-        }
-
-        [HttpPost]
-        public IActionResult Delete(DetailsUpdateDeleteRoomViewModel viewModel)
-        {
-            _roomRepository.Delete(viewModel.RoomId);
-            return RedirectToAction("Details", "Apartment", new { apartmentId = viewModel.ApartmentId });
         }
     }
 }
