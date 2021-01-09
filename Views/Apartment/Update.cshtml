@@ -47,8 +47,12 @@
         <input asp-for="Floor" />
     </p>
     <p>
-        <label asp-for="BuildingType"></label>
-        <input asp-for="BuildingType" />
+        Type of building your apartment is in:
+        @foreach (var type in System.Enum.GetValues(typeof(BuildingType)))
+        {
+            <label for="@type" asp-for="BuildingType">@type</label>
+            <input type="radio" id="@type" asp-for="BuildingType" value="@type" />
+        }
     </p>
     <p>
         <label asp-for="BuildingFloors"></label>
@@ -56,6 +60,6 @@
     </p>
 
     <input type="submit" value="Update" />
-</form>
+    </form>
 
 <a class="btn btn-primary" asp-controller="Apartment" asp-action="Index">Back to apartments list</a>
