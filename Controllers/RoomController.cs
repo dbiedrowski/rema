@@ -14,18 +14,35 @@ namespace REMA.Controllers
     public class RoomController : Controller
     {
         private readonly IRoomRepository _roomRepository;
+        private readonly IApartmentRepository _apartmentRepository;
 
-        public RoomController(IRoomRepository roomRepository)
+        public RoomController(IRoomRepository roomRepository,
+                                IApartmentRepository apartmentRepository)
         {
             _roomRepository = roomRepository;
+            _apartmentRepository = apartmentRepository;
         }
 
         [HttpGet]
         public IActionResult Add(int apartmentId)
         {
-            CreateRoomViewModel viewModel = new CreateRoomViewModel();
-            viewModel.ApartmentId = apartmentId;
-            return View(viewModel);
+            Apartment apartment = _apartmentRepository.GetById(apartmentId);
+            
+            if(apartment == null)
+            {
+                return NotFound();
+            }
+            
+            if(apartment.Rooms.Count < apartment.NumberOfRooms)
+            {
+                CreateRoomViewModel viewModel = new CreateRoomViewModel();
+                viewModel.ApartmentId = apartmentId;
+                return View(viewModel);
+            }
+            else
+            {
+                return RedirectToAction("Details", "Apartment", new { apartmentId = apartmentId });
+            }
         }
 
         [HttpPost]

@@ -6,8 +6,11 @@
 
 <p>Details of your apartment:</p>
 <partial name="_ApartmentDetailsPartial" model="Model"/>
-<a class="btn btn-primary"
+@if (Model.Rooms.Count < Model.NumberOfRooms)
+{
+    <a class="btn btn-primary"
    asp-controller="Room"
    asp-action="Add"
    asp-route-apartmentId="@Model.ApartmentId">Add a room to this apartment</a>
+}
 <a class="btn btn-primary" asp-controller="Apartment" asp-action="Index">Back to apartments list</a>
