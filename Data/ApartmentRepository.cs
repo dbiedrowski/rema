@@ -49,6 +49,7 @@ namespace REMA.Data
         {
             return _context.Apartments
                 .Include(a => a.Address)
+                .Include(r => r.Rooms)
                 .Where(a => a.Landlord.LandlordId == landlord.LandlordId);
         }
 

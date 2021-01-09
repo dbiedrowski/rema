@@ -41,5 +41,30 @@ namespace REMA.ViewModels
                 RoomType = room.RoomType
             };
         }
+
+        internal static List<DetailsUpdateDeleteRoomViewModel> ToViewModels(
+            List<Room> rooms)
+        {
+            List<DetailsUpdateDeleteRoomViewModel> viewModels
+                = new List<DetailsUpdateDeleteRoomViewModel>();
+            foreach (var room in rooms)
+            {
+                viewModels.Add(DetailsUpdateDeleteRoomViewModel.ToViewModel(room));
+            }
+
+            return viewModels;
+        }
+
+        internal static List<Room> ToDomainModels(
+            List<DetailsUpdateDeleteRoomViewModel> viewModels)
+        {
+            List<Room> rooms = new List<Room>();
+            foreach (var viewModel in viewModels)
+            {
+                rooms.Add(viewModel.ToDomainModel());
+            }
+
+            return rooms;
+        }
     }
 }
