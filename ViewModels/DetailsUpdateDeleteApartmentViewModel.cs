@@ -26,6 +26,7 @@ namespace REMA.ViewModels
         public DateTime AvailableSince { get; set; }
         public double Area { get; set; }
         public List<DetailsUpdateDeleteRoomViewModel> Rooms { get; set; }
+        public int NumberOfRooms { get; set; }
 
         internal Apartment ToDomainModel()
         {
@@ -47,7 +48,8 @@ namespace REMA.ViewModels
                 BuildingFloors = BuildingFloors,
                 AvailableSince = AvailableSince,
                 Area = Area,
-                Rooms = DetailsUpdateDeleteRoomViewModel.ToDomainModels(Rooms)
+                Rooms = DetailsUpdateDeleteRoomViewModel.ToDomainModels(Rooms),
+                NumberOfRooms = NumberOfRooms
             };
         }
 
@@ -83,7 +85,8 @@ namespace REMA.ViewModels
                 BuildingFloors = apartment.BuildingFloors,
                 AvailableSince = apartment.AvailableSince,
                 Area = apartment.Area,
-                Rooms = DetailsUpdateDeleteRoomViewModel.ToViewModels(apartment.Rooms)
+                Rooms = DetailsUpdateDeleteRoomViewModel.ToViewModels(apartment.Rooms),
+                NumberOfRooms = apartment.NumberOfRooms
             };
 
             return apartmentViewModel;

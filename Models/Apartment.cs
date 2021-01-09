@@ -26,6 +26,7 @@ namespace REMA.Models
         public int LandlordId { get; set; }
         public Landlord Landlord { get; set; }
         public List<Room> Rooms { get; set; }
+        public int NumberOfRooms { get; set; }
 
     }
 }

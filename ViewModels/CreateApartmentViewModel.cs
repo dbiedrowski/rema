@@ -23,6 +23,7 @@ namespace REMA.ViewModels
         public int BuildingFloors { get; set; }
         public DateTime AvailableSince { get; set; }
         public double Area { get; set; }
+        public int NumberOfRooms { get; set; }
 
         internal Apartment ToDomainModel()
         {
@@ -41,7 +42,8 @@ namespace REMA.ViewModels
                 BuildingType = BuildingType,
                 BuildingFloors = BuildingFloors,
                 AvailableSince = AvailableSince,
-                Area = Area
+                Area = Area,
+                NumberOfRooms = NumberOfRooms
             };
         }
     }
