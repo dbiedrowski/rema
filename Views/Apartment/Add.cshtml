@@ -53,6 +53,10 @@
             <label for="@type" asp-for="BuildingType">@type</label>
             <input type="radio" id="@type" asp-for="BuildingType" value="@type" />
         }
+    </div>
+    <p>
+        <label asp-for="NumberOfRooms"></label>
+        <input asp-for="NumberOfRooms" />
     </p>
 
     <input type="submit" value="Add new apartment" />

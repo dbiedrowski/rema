@@ -8,6 +8,7 @@
         <th>Floor</th>
         <th>BuildingType</th>
         <th>BuildingFloors</th>
+        <th>Number of rooms to let</th>
     </tr>
     <tr>
         <td>@Model.StreetName @Model.StreetNumber, @Model.ZipCode @Model.City, @Model.State, @Model.Country</td>
@@ -16,6 +17,7 @@
         <td>@Model.Floor</td>
         <td>@Model.BuildingType</td>
         <td>@Model.BuildingFloors</td>
+        <td>@Model.NumberOfRooms</td>
     </tr>
 </table>
 @if (Model.Rooms.Any())

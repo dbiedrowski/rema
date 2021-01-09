@@ -46,41 +46,5 @@ namespace REMA.ViewModels
                 NumberOfRooms = NumberOfRooms
             };
         }
-<<<<<<< HEAD
-=======
-
-        internal static IEnumerable<CreateApartmentViewModel> ToApartmentViewModels(
-            IEnumerable<Apartment> apartments)
-        {
-            List<CreateApartmentViewModel> viewModels = new List<CreateApartmentViewModel>();
-            foreach(var apartment in apartments)
-            {
-                viewModels.Add(CreateApartmentViewModel.ToApartmentViewModel(apartment));
-            }
-
-            return viewModels.AsEnumerable();
-        }
-
-        internal static CreateApartmentViewModel ToApartmentViewModel(Apartment apartment)
-        {
-            CreateApartmentViewModel apartmentViewModel = new CreateApartmentViewModel()
-            {
-                StreetName = apartment.Address.StreetName,
-                StreetNumber = apartment.Address.StreetNumber,
-                City = apartment.Address.City,
-                ZipCode = apartment.Address.ZipCode,
-                State = apartment.Address.State,
-                Country = apartment.Address.Country,
-                Floor = apartment.Floor,
-                BuildingType = apartment.BuildingType,
-                BuildingFloors = apartment.BuildingFloors,
-                AvailableSince = apartment.AvailableSince,
-                Area = apartment.Area,
-                NumberOfRooms = apartment.NumberOfRooms
-            };
-
-            return apartmentViewModel;
-        }
->>>>>>> 28208d7... REMA-92: Apply changes in (view)models
     }
 }
