@@ -17,10 +17,11 @@
     <label asp-for="@Model.RoomType"></label>
     <input asp-for="@Model.RoomType" />
 
-    <input class="btn btn-primary" type="submit" value="Update your room"/>
+    <p>
+        <input class="btn btn-primary" type="submit" value="Update your room" />
+        <a class="btn btn-primary"
+           asp-controller="Apartment"
+           asp-action="Details"
+           asp-route-apartmentId="@Model.ApartmentId">Back to apartment</a>
+    </p>
 </form>
-
-<a class="btn btn-primary"
-   asp-controller="Apartment"
-   asp-action="Details"
-   asp-route-apartmentId="@Model.ApartmentId">Back to apartment</a>
