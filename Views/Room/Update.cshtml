@@ -8,15 +8,22 @@
     <input hidden="hidden" asp-for="@Model.RoomId" />
     <input hidden="hidden" asp-for="@Model.ApartmentId" />
 
-    <label asp-for="@Model.Area"></label>
-    <input asp-for="@Model.Area" />
-    <label asp-for="@Model.IsFurnished"></label>
-    <input asp-for="@Model.IsFurnished" />
-    <label asp-for="@Model.Price"></label>
-    <input asp-for="@Model.Price" />
-    <label asp-for="@Model.RoomType"></label>
-    <input asp-for="@Model.RoomType" />
-
+    <p>
+        <label asp-for="@Model.Area"></label>
+        <input asp-for="@Model.Area" />
+    </p>
+    <p>
+        <label asp-for="@Model.IsFurnished"></label>
+        <input asp-for="@Model.IsFurnished" />
+    </p>
+    <p>
+        <label asp-for="@Model.Price"></label>
+        <input asp-for="@Model.Price" />
+    </p>
+    <p>
+        <label asp-for="@Model.RoomType"></label>
+        <input asp-for="@Model.RoomType" />
+    </p>
     <p>
         <input class="btn btn-primary" type="submit" value="Update your room" />
         <a class="btn btn-primary"
