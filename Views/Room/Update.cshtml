@@ -21,8 +21,14 @@
         <input asp-for="@Model.Price" />
     </p>
     <p>
-        <label asp-for="@Model.RoomType"></label>
-        <input asp-for="@Model.RoomType" />
+        Type of room:
+        @foreach (var type in System.Enum.GetValues(typeof(RoomType)))
+        {
+            <p>
+                <label for="@type" asp-for="@Model.RoomType">@type</label>
+                <input type="radio" value="@type" id="@type" asp-for="@Model.RoomType" />
+            </p>
+        }
     </p>
     <p>
         <input class="btn btn-primary" type="submit" value="Update your room" />
