@@ -11,24 +11,14 @@
     <p>Rooms associated with this apartments:</p>
     <table border="1px solid black" border-collapse="collapse">
         <tr>
-            <th>Price</th>
-            <th>RoomType</th>
-            <th>Area</th>
-            <th>IsFurnished</th>
-            <th>Action</th>
+            <partial name="_RoomDetailsHeaderPartial"/>
+            <th>Actions</th>
         </tr>
         @foreach (var room in Model.Rooms)
         {
             <tr>
-                <td>@room.Price</td>
-                <td>@room.RoomType</td>
-                <td>@room.Area</td>
-                <td>@room.IsFurnished</td>
+                <partial name="_RoomDetailsBodyPartial" model="@room"/>
                 <td>
-                    <a class="btn btn-primary"
-                       asp-controller="Room"
-                       asp-action="Details"
-                       asp-route-roomId="@room.RoomId">Details</a>
                     <a class="btn btn-primary"
                        asp-controller="Room"
                        asp-action="Update"

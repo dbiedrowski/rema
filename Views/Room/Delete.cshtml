@@ -7,20 +7,16 @@
 <form method="post" asp-action="Delete">
     <input hidden="hidden" asp-for="@Model.RoomId" />
     <input hidden="hidden" asp-for="@Model.ApartmentId" />
-    <table>
+
+    <table border="1px solid black" border-collapse="collapse">
         <tr>
-            <th>Price</th>
-            <th>RoomType</th>
-            <th>Area</th>
-            <th>IsFurnished</th>
+            <partial name="_RoomDetailsHeaderPartial" />
         </tr>
         <tr>
-            <td>@Model.Price</td>
-            <td>@Model.RoomType</td>
-            <td>@Model.Area</td>
-            <td>@Model.IsFurnished</td>
+            <partial name="_RoomDetailsBodyPartial" model="Model" />
         </tr>
     </table>
+
     <input class="btn btn-danger" type="submit" value="Delete this room from your apartment" />
 </form>
 

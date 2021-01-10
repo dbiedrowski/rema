@@ -7,14 +7,33 @@
 <form method="post" action="Add">
     <input asp-for="ApartmentId" hidden="hidden" />
 
-    <label asp-for="Price"></label>
-    <input asp-for="Price" />
-    <label asp-for="RoomType"></label>
-    <input asp-for="RoomType" />
-    <label asp-for="Area"></label>
-    <input asp-for="Area" />
-    <label asp-for="IsFurnished"></label>
-    <input asp-for="IsFurnished" />
-
-    <input type="submit" value="Add room"/>
+    <p>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" />
+    </p>
+    <p>
+        <label asp-for="Area"></label>
+        <input asp-for="Area" />
+    </p>
+    <div>
+        Type of room:
+        @foreach (var type in System.Enum.GetValues(typeof(RoomType)))
+        {
+            <p>
+                <label for="@type" asp-for="@Model.RoomType">@type</label>
+                <input type="radio" value="@type" id="@type" asp-for="@Model.RoomType" />
+            </p>
+        }
+    </div>
+    <p>
+        <label asp-for="IsFurnished"></label>
+        <input asp-for="IsFurnished" />
+    </p>
+    <p>
+        <input type="submit" value="Add room" />
+        <a class="btn btn-primary"
+           asp-controller="Apartment"
+           asp-action="Details"
+           asp-route-apartmentId="@Model.ApartmentId">Cancel</a>
+    </p>
 </form>
