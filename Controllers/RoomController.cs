@@ -53,12 +53,6 @@ namespace REMA.Controllers
         }
 
         [HttpGet]
-        public IActionResult Details(int roomId)
-        {
-            return HelperForHttpGetDetailsUpdateDelete(roomId);
-        }
-
-        [HttpGet]
         public IActionResult Update(int roomId)
         {
             return HelperForHttpGetDetailsUpdateDelete(roomId);
