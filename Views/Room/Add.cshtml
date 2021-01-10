@@ -11,6 +11,10 @@
         <label asp-for="Price"></label>
         <input asp-for="Price" />
     </p>
+    <p>
+        <label asp-for="Area"></label>
+        <input asp-for="Area" />
+    </p>
     <div>
         Type of room:
         @foreach (var type in System.Enum.GetValues(typeof(RoomType)))
@@ -21,10 +25,6 @@
             </p>
         }
     </div>
-    <p>
-        <label asp-for="Area"></label>
-        <input asp-for="Area" />
-    </p>
     <p>
         <label asp-for="IsFurnished"></label>
         <input asp-for="IsFurnished" />
