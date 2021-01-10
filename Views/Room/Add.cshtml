@@ -7,15 +7,22 @@
 <form method="post" action="Add">
     <input asp-for="ApartmentId" hidden="hidden" />
 
-    <label asp-for="Price"></label>
-    <input asp-for="Price" />
-    <label asp-for="RoomType"></label>
-    <input asp-for="RoomType" />
-    <label asp-for="Area"></label>
-    <input asp-for="Area" />
-    <label asp-for="IsFurnished"></label>
-    <input asp-for="IsFurnished" />
-
+    <p>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" />
+    </p>
+    <p>
+        <label asp-for="RoomType"></label>
+        <input asp-for="RoomType" />
+    </p>
+    <p>
+        <label asp-for="Area"></label>
+        <input asp-for="Area" />
+    </p>
+    <p>
+        <label asp-for="IsFurnished"></label>
+        <input asp-for="IsFurnished" />
+    </p>
     <p>
         <input type="submit" value="Add room" />
         <a class="btn btn-primary"
