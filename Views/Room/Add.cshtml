@@ -11,10 +11,16 @@
         <label asp-for="Price"></label>
         <input asp-for="Price" />
     </p>
-    <p>
-        <label asp-for="RoomType"></label>
-        <input asp-for="RoomType" />
-    </p>
+    <div>
+        Type of room:
+        @foreach (var type in System.Enum.GetValues(typeof(RoomType)))
+        {
+            <p>
+                <label for="@type" asp-for="@Model.RoomType">@type</label>
+                <input type="radio" value="@type" id="@type" asp-for="@Model.RoomType" />
+            </p>
+        }
+    </div>
     <p>
         <label asp-for="Area"></label>
         <input asp-for="Area" />
