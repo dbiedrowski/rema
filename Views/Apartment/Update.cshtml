@@ -6,6 +6,7 @@
 
 <p>Update your apartment:</p>
 <form method="post" asp-action="Update">
+    <input type="hidden" asp-for="Rooms" />
     <p>
         <input asp-for="ApartmentId" hidden="hidden" />
         <input asp-for="AddressId" hidden="hidden" />
@@ -46,14 +47,14 @@
         <label asp-for="Floor"></label>
         <input asp-for="Floor" />
     </p>
-    <p>
+    <div>
         Type of building your apartment is in:
         @foreach (var type in System.Enum.GetValues(typeof(BuildingType)))
         {
             <label for="@type" asp-for="BuildingType">@type</label>
             <input type="radio" id="@type" asp-for="BuildingType" value="@type" />
         }
-    </p>
+    </div>
     <p>
         <label asp-for="BuildingFloors"></label>
         <input asp-for="BuildingFloors" />

@@ -72,6 +72,7 @@ namespace REMA.Data
                 current.BuildingType = newApartment.BuildingType;
                 current.Floor = newApartment.Floor;
                 current.NumberOfRooms = newApartment.NumberOfRooms;
+                current.Rooms = newApartment.Rooms;
 
                 _context.SaveChanges();
             }
