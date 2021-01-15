@@ -2,6 +2,7 @@
 using REMA.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -42,11 +43,11 @@ namespace REMA.ViewModels
             };
         }
 
-        internal static List<DetailsUpdateDeleteRoomViewModel> ToViewModels(
+        internal static BindingList<DetailsUpdateDeleteRoomViewModel> ToViewModels(
             List<Room> rooms)
         {
-            List<DetailsUpdateDeleteRoomViewModel> viewModels
-                = new List<DetailsUpdateDeleteRoomViewModel>();
+            BindingList<DetailsUpdateDeleteRoomViewModel> viewModels
+                = new BindingList<DetailsUpdateDeleteRoomViewModel>();
             foreach (var room in rooms)
             {
                 viewModels.Add(DetailsUpdateDeleteRoomViewModel.ToViewModel(room));
@@ -56,7 +57,7 @@ namespace REMA.ViewModels
         }
 
         internal static List<Room> ToDomainModels(
-            List<DetailsUpdateDeleteRoomViewModel> viewModels)
+            BindingList<DetailsUpdateDeleteRoomViewModel> viewModels)
         {
             List<Room> rooms = new List<Room>();
             foreach (var viewModel in viewModels)

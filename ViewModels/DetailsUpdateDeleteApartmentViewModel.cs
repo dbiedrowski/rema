@@ -2,6 +2,7 @@
 using REMA.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -25,7 +26,7 @@ namespace REMA.ViewModels
         public int BuildingFloors { get; set; }
         public DateTime AvailableSince { get; set; }
         public double Area { get; set; }
-        public List<DetailsUpdateDeleteRoomViewModel> Rooms { get; set; }
+        public BindingList<DetailsUpdateDeleteRoomViewModel> Rooms { get; set; }
         public int NumberOfRooms { get; set; }
 
         internal Apartment ToDomainModel()
