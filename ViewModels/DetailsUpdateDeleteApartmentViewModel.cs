@@ -1,4 +1,5 @@
-﻿using REMA.Enums;
+﻿using Microsoft.AspNetCore.Mvc;
+using REMA.Enums;
 using REMA.Models;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace REMA.ViewModels
         public int BuildingFloors { get; set; }
         public DateTime AvailableSince { get; set; }
         public double Area { get; set; }
-        public BindingList<DetailsUpdateDeleteRoomViewModel> Rooms { get; set; }
+        public List<DetailsUpdateDeleteRoomViewModel> Rooms { get; set; }
         public int NumberOfRooms { get; set; }
 
         internal Apartment ToDomainModel()

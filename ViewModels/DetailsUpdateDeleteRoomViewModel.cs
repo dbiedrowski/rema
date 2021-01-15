@@ -43,11 +43,11 @@ namespace REMA.ViewModels
             };
         }
 
-        internal static BindingList<DetailsUpdateDeleteRoomViewModel> ToViewModels(
+        internal static List<DetailsUpdateDeleteRoomViewModel> ToViewModels(
             List<Room> rooms)
         {
-            BindingList<DetailsUpdateDeleteRoomViewModel> viewModels
-                = new BindingList<DetailsUpdateDeleteRoomViewModel>();
+            List<DetailsUpdateDeleteRoomViewModel> viewModels
+                = new List<DetailsUpdateDeleteRoomViewModel>();
             foreach (var room in rooms)
             {
                 viewModels.Add(DetailsUpdateDeleteRoomViewModel.ToViewModel(room));
@@ -57,7 +57,7 @@ namespace REMA.ViewModels
         }
 
         internal static List<Room> ToDomainModels(
-            BindingList<DetailsUpdateDeleteRoomViewModel> viewModels)
+            List<DetailsUpdateDeleteRoomViewModel> viewModels)
         {
             List<Room> rooms = new List<Room>();
             foreach (var viewModel in viewModels)
