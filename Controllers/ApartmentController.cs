@@ -76,7 +76,8 @@ namespace REMA.Controllers
         [HttpPost]
         public IActionResult Update(DetailsUpdateDeleteApartmentViewModel viewModel)
         {
-            _apartmentRepository.Update(viewModel.ToDomainModel());
+            Apartment apartment = viewModel.ToDomainModel();
+            _apartmentRepository.Update(apartment);
             return RedirectToAction("Index");
         }
 

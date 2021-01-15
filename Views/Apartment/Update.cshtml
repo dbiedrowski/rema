@@ -6,8 +6,8 @@
 
 <p>Update your apartment:</p>
 <form method="post" asp-action="Update">
-    <input type="hidden" asp-for="Rooms" />
     <p>
+        <input asp-for="Rooms" hidden="hidden" />
         <input asp-for="ApartmentId" hidden="hidden" />
         <input asp-for="AddressId" hidden="hidden" />
     </p>
@@ -65,6 +65,6 @@
     </p>
 
     <input type="submit" value="Update" />
-    </form>
+</form>
 
 <a class="btn btn-primary" asp-controller="Apartment" asp-action="Index">Back to apartments list</a>
