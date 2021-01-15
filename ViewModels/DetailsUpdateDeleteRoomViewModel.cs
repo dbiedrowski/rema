@@ -60,11 +60,14 @@ namespace REMA.ViewModels
             List<DetailsUpdateDeleteRoomViewModel> viewModels)
         {
             List<Room> rooms = new List<Room>();
-            foreach (var viewModel in viewModels)
+            if(viewModels != null)
             {
-                rooms.Add(viewModel.ToDomainModel());
+                foreach (var viewModel in viewModels)
+                {
+                    rooms.Add(viewModel.ToDomainModel());
+                }
             }
-
+            
             return rooms;
         }
     }
