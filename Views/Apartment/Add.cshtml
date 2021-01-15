@@ -1,5 +1,9 @@
 ﻿@model CreateApartmentViewModel
 
+@{ 
+    ViewData["Title"] = "Add new apartment";
+}
+
 <p>Fill in the data below and click "Add new apartment" to add a new apartment to your list.</p>
 <form method="post" asp-action="Add">
 
@@ -32,11 +36,11 @@
     <!-- The rest of the apartment -->
     <p>
         <label asp-for="Area"></label>
-        <input asp-for="Area" />
+        <input type="number" step="any" asp-for="Area" />
     </p>
     <p>
         <label asp-for="AvailableSince"></label>
-        <input asp-for="AvailableSince" />
+        <input type="date" asp-for="AvailableSince" />
     </p>
     <p>
         <label asp-for="BuildingFloors"></label>
@@ -46,7 +50,7 @@
         <label asp-for="Floor"></label>
         <input asp-for="Floor" />
     </p>
-    <p>
+    <div>
         Type of building your apartment is in:
         @foreach (var type in System.Enum.GetValues(typeof(BuildingType)))
         {
