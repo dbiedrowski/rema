@@ -8,6 +8,14 @@
 <partial name="_ApartmentDetailsPartial" model="Model" />
 @if (Model.Rooms.Any())
 {
+    @if(TempData["AttemptedToAddRoomToFullApartment"] != null)
+    {
+        <p></p>
+        var message = (string)TempData["AttemptedToAddRoomToFullApartment"].ToString();
+        <div class="alert alert-info" role="alert">
+            @message
+        </div>
+    }
     <p>Rooms associated with this apartments:</p>
     <table border="1px solid black" border-collapse="collapse">
         <tr>

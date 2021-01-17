@@ -41,6 +41,8 @@ namespace REMA.Controllers
             }
             else
             {
+                TempData["AttemptedToAddRoomToFullApartment"] =
+                    "You cannot add more rooms to this apartment.";
                 return RedirectToAction("Details", "Apartment", new { apartmentId = apartmentId });
             }
         }
