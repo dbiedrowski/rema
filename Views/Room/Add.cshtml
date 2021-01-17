@@ -13,7 +13,7 @@
     </p>
     <p>
         <label asp-for="Area"></label>
-        <input type="number" step="any" asp-for="Area" />
+        <input type="text" pattern="(^\d{1,2}(,\d{0,2}){0,1}$)" asp-for="Area" />
     </p>
     <div>
         Type of room:

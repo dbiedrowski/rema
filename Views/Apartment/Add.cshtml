@@ -36,7 +36,7 @@
     <!-- The rest of the apartment -->
     <p>
         <label asp-for="Area"></label>
-        <input type="number" step="any" asp-for="Area" />
+        <input type="text" pattern="(^\d{2,3}(,\d{0,2}){0,1}$)" asp-for="Area" />
     </p>
     <p>
         <label asp-for="AvailableSince"></label>
