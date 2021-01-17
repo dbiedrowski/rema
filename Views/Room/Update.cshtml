@@ -10,11 +10,11 @@
 
     <p>
         <label asp-for="@Model.Price"></label>
-        <input asp-for="@Model.Price" />
+        <input type="number" asp-for="@Model.Price" />
     </p>
     <p>
         <label asp-for="@Model.Area"></label>
-        <input asp-for="@Model.Area" />
+        <input type="number" step="any" asp-for="@Model.Area" />
     </p>
     <div>
         Type of room:
