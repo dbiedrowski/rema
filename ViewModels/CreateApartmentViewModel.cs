@@ -21,7 +21,7 @@ namespace REMA.ViewModels
         public int Floor { get; set; }
         public BuildingType BuildingType { get; set; }
         public int BuildingFloors { get; set; }
-        public DateTime AvailableSince { get; set; }
+        public DateTime AvailableSince { get; set; } = DateTime.Now;
         public double Area { get; set; }
         public int NumberOfRooms { get; set; }
 
