@@ -28,8 +28,11 @@ namespace REMA.Controllers
             _apartmentRepository = apartmentRepository;
             _httpContextAccessor = httpContextAccessor;
 
-            var userId = _httpContextAccessor.HttpContext.User
-                .FindFirst(ClaimTypes.NameIdentifier).Value;
+            var userId = _httpContextAccessor
+                .HttpContext
+                .User
+                .FindFirst(ClaimTypes.NameIdentifier)
+                .Value;
             _landlord = _landlordRepository.GetLandlord(userId);
         }
 
